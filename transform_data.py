@@ -17,7 +17,7 @@ def transform_data(
 ) -> None:
     df = pd.read_csv(raw_df)
 
-    df["total_sale"] = df["quantity"] * df["unit_price"]
+    df["total_sales"] = df["quantity"] * df["unit_price"]
 
     df["date"] = pd.to_datetime(df["date"])
 
@@ -25,7 +25,7 @@ def transform_data(
     df["month"] = df["date"].dt.month
     df["day"] = df["date"].dt.day_name()
 
-    df["sales_category"] = df["total_sale"].apply(categorize_sale)
+    df["sales_category"] = df["total_sales"].apply(categorize_sale)
     df = df.drop_duplicates()
 
     print(f"Transformations completed: {raw_df} -> {transformed_df}")
