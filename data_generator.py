@@ -27,6 +27,7 @@ def generate_data(n: int = 1000, filename: str = "sales_raw.csv") -> None:
         sales.append(sale)
     df = pd.DataFrame(sales)
     df.to_csv(filename, index=False)
+    print("Data generated successfully: " + filename)
 
 
 if __name__ == "__main__":
