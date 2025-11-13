@@ -10,7 +10,9 @@ products: List[str] = ["Laptop", "Mouse", "Keyboard", "Screen", "Webcam"]
 regions: List[str] = ["North", "South", "East", "West"]
 
 
-def generate_data(n: int = 1000, filename: str = "sales_raw.csv") -> None:
+def generate_data(
+    n: int = 1000, filename: str = "sales_raw.csv", idx: bool = False
+) -> None:
     sales: List[Dict] = []
     for i in range(n):
         date = fake.date_time_between(start_date="-90d", end_date="now")
@@ -26,7 +28,7 @@ def generate_data(n: int = 1000, filename: str = "sales_raw.csv") -> None:
 
         sales.append(sale)
     df = pd.DataFrame(sales)
-    df.to_csv(filename, index=False)
+    df.to_csv(filename, index=idx)
     print("Data generated successfully: " + filename)
 
 
