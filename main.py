@@ -1,4 +1,5 @@
 import subprocess
+import sys
 
 
 def main() -> None:
@@ -13,7 +14,7 @@ def main() -> None:
 
     for message, script in steps:
         print(f"▶ {message}")
-        subprocess.run(["python", script])
+        subprocess.run([sys.executable, script])
         print()
 
     print("Pipeline completed successfully!")
